@@ -1,31 +1,34 @@
 const { ethers } = require("ethers");
+const { ContractType } = require("hardhat/internal/hardhat-network/stack-traces/model");
 
 const main = async () => {
-    const [owner] = await hre.ethers.getSigners();
+    //get owner address
+    const [owner, person1, person2] = await hre.ethers.getSigners();
     const btcContractFactory = await hre.ethers.getContractFactory("freeBTC");
-    const btcContract = await btcContractFactory.deploy();
-    await btcContract.deployed();
-  
-    console.log(`Smart Contract Address: ${btcContract.address} `);
-    console.log(`Our sponsor for today giveaway is ${owner.address}, give a shoutout!`);
-  
-    let [randomPerson, randomPerson2] = await hre.ethers.getSigners();
-    let btcTxn = await btcContract.connect(randomPerson).sendBTC("i need this for my final exam");
-    await btcTxn.wait();
-    let btc2Txn = await btcContract.connect(randomPerson2).sendBTC("I want a real asset for my portfolio!")
-
-    // let [secondPerson] = await hre.ethers.getSigners();
-    // secondPersonTxn = await btcContract.connect(secondPerson).sendBTC("I impregnated someone!");
-    // await secondPersonTxn.wait();
-  
-    await btcContract.btcLeft();
-    const allBeneficiaries = await btcContract.getAllBeneficiaries();
-    allBeneficiaries.forEach(beneficiary => { 
-      console.log("Address: ",beneficiary._beneficiaries);
-      console.log("Timestamp: ", new Date(beneficiary._timestamp * 1000));
-      console.log("Reason: ",beneficiary._message);
-      console.log("--------------------------------------------------------------------");
+    //initialize the contract with 0.2ETH
+    const btcContract = await btcContractFactory.deploy({
+      value:hre.ethers.utils.parseEther("0.2"),
     });
+    await btcContract.deployed();
+    let contractBalance  = await hre.ethers.provider.getBalance(btcContract.address);
+    console.log(`Smart Contract Address: ${btcContract.address}  with a balance of ${hre.ethers.utils.formatEther(contractBalance)}ETH`);
+    
+    //formatEther converts wei to eth
+    console.log(`ETH available in the SC: ${hre.ethers.utils.formatEther(contractBalance)}`);
+    let person1Txn = await btcContract.sendBTC("I need money for fuck sake!");
+    await person1Txn.wait();
+
+    let person2Txn = await btcContract.sendBTC("Wanna feed my kitties!");
+    await person2Txn.wait();
+
+    //A for each loop to print out events for each participants
+    // let totalBeneficiaries = await btcContract.getAllBeneficiaries();
+    // totalBeneficiaries.forEach((value, index) => {
+    //   console.log("Address: ",totalBeneficiaries[index]._beneficiaries);
+    //   console.log("Reason: ",totalBeneficiaries[index]._message);
+    //   console.log(`Time: ${totalBeneficiaries[index]._timestamp.toString()}`);
+    // })
+    console.log(`Remaining ETH in the Smart Contract: ${await hre.ethers.utils.formatEther(await hre.ethers.provider.getBalance(btcContract.address))}`);
 
   };
   

@@ -37,8 +37,8 @@
       ]
     },
     "C:\\Users\\hybri\\buildspace\\contracts\\freeBTC.sol": {
-      "lastModificationDate": 1656631334749,
-      "contentHash": "2f81b71249d8edbae597a9b9e6a6e914",
+      "lastModificationDate": 1656945462512,
+      "contentHash": "222ab0adff532e36b877dc736baa8fd0",
       "sourceName": "contracts/freeBTC.sol",
       "solcConfig": {
         "version": "0.8.4",
