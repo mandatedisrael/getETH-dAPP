@@ -6,7 +6,9 @@ import "hardhat/console.sol";
 
 contract freeBTC {
     uint256 private seed;
+
     mapping(address => uint256) public lastBeneficiary;
+
     event Beneficiaries(address indexed from, uint256 timestamp, string message );
 
     struct people {
@@ -23,10 +25,11 @@ contract freeBTC {
     }
  
     function sendBTC(string memory _messageFromUser) public {
-        //Prevet users from spamming and only give opportunities after 15mins!
+        //Prevent users from spamming and only give opportunities after 15mins!
         require(lastBeneficiary[msg.sender] + 15 minutes < block.timestamp, "Try again after 15Mins!");
-        lastBeneficiary[msg.sender] = block.timestamp;
         
+        lastBeneficiary[msg.sender] = block.timestamp;
+
         benefitedPeoples.push(people(msg.sender, block.timestamp, _messageFromUser));
         emit Beneficiaries(msg.sender, block.timestamp, _messageFromUser);
 
