@@ -36,10 +36,10 @@
         "console"
       ]
     },
-    "C:\\Users\\hybri\\buildspace\\contracts\\freeBTC.sol": {
-      "lastModificationDate": 1656945462512,
-      "contentHash": "222ab0adff532e36b877dc736baa8fd0",
-      "sourceName": "contracts/freeBTC.sol",
+    "C:\\Users\\hybri\\buildspace\\contracts\\freeETH.sol": {
+      "lastModificationDate": 1658336388975,
+      "contentHash": "de96c31b5197b188bb540e20e2430b40",
+      "sourceName": "contracts/freeETH.sol",
       "solcConfig": {
         "version": "0.8.4",
         "settings": {
@@ -70,7 +70,7 @@
         "^0.8.4"
       ],
       "artifacts": [
-        "freeBTC"
+        "freeETH"
       ]
     }
   }

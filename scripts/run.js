@@ -4,31 +4,34 @@ const { ContractType } = require("hardhat/internal/hardhat-network/stack-traces/
 const main = async () => {
     //get owner address
     const [owner, person1, person2] = await hre.ethers.getSigners();
-    const btcContractFactory = await hre.ethers.getContractFactory("freeBTC");
+    const ETHContractFactory = await hre.ethers.getContractFactory("freeETH");
     //initialize the contract with 0.2ETH
-    const btcContract = await btcContractFactory.deploy({
-      value:hre.ethers.utils.parseEther("0.2"),
+    const ETHContract = await ETHContractFactory.deploy({
+      value:hre.ethers.utils.parseEther("0.5"),
     });
-    await btcContract.deployed();
-    let contractBalance  = await hre.ethers.provider.getBalance(btcContract.address);
-    console.log(`Smart Contract Address: ${btcContract.address}  with a balance of ${hre.ethers.utils.formatEther(contractBalance)}ETH`);
+    await ETHContract.deployed();
+    let contractBalance  = await hre.ethers.provider.getBalance(ETHContract.address);
+    console.log(`Smart Contract Address: ${ETHContract.address}  with a balance of ${hre.ethers.utils.formatEther(contractBalance)}ETH`);
     
     //formatEther converts wei to eth
     console.log(`ETH available in the SC: ${hre.ethers.utils.formatEther(contractBalance)}`);
-    let person1Txn = await btcContract.sendBTC("I need money for fuck sake!");
-    await person1Txn.wait();
+    console.log("Alchemy should get the contract out soon, Dont forget to update your ABI!");
 
-    let person2Txn = await btcContract.sendBTC("Wanna feed my kitties!");
-    await person2Txn.wait();
+    //CLI testing...
+    // let person1Txn = await ETHContract.sendETH("I need money for fuck sake!");
+    // await person1Txn.wait();
+
+    // let person2Txn = await ETHContract.sendETH("Wanna feed my kitties!");
+    // await person2Txn.wait();
 
     //A for each loop to print out events for each participants
-    // let totalBeneficiaries = await btcContract.getAllBeneficiaries();
+    // let totalBeneficiaries = await ETHContract.getAllBeneficiaries();
     // totalBeneficiaries.forEach((value, index) => {
     //   console.log("Address: ",totalBeneficiaries[index]._beneficiaries);
     //   console.log("Reason: ",totalBeneficiaries[index]._message);
     //   console.log(`Time: ${totalBeneficiaries[index]._timestamp.toString()}`);
     // })
-    console.log(`Remaining ETH in the Smart Contract: ${await hre.ethers.utils.formatEther(await hre.ethers.provider.getBalance(btcContract.address))}`);
+    console.log(`Remaining ETH in the Smart Contract: ${await hre.ethers.utils.formatEther(await hre.ethers.provider.getBalance(ETHContract.address))}`);
 
   };
   
