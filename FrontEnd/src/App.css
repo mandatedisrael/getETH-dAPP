@@ -1,0 +1,108 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: black;
+  display:flex;
+  flex-direction:column;
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  height:200px;
+  padding-top:5%;
+}
+
+.header-new {
+  font-size: 100%;
+  font-weight: 600;
+  display:flex;
+  justify-content:space-between;
+  background-color:#000000;
+  color:#eec1b3;
+  height: 45px;
+  padding:20px;
+}
+
+
+.buttonx{
+  color:#eec1b3;
+  background-color:transparent;
+  border-radius:20px;
+  border-color:#eec1b3;
+  cursor:pointer;
+  padding:10px;
+  font-weight:bold;
+}
+
+.buttonx:hover{
+  background-color:#eec1b3;
+  color:#1a2456;
+  font-weight:bold;
+}
+.reason-div, form{
+  color:#000000;
+  font-weight:bold;
+  display:flex;
+  justify-content:center;
+  font-size:300%;
+  letter-spacing:8px;
+  margin-bottom:10px;
+}
+
+
+.msg{
+  border-radius:10px;
+  border-color:black;
+  width:40%;
+  padding-left:20px
+}
+
+.msg-submit{
+  width:10%;
+  margin-left:2%;
+  font-size:30%;
+  color:white;
+  cursor:pointer;
+  background-color:black;
+}
+
+.name{
+  font-size:250%;
+}
+
+.beneficiary-list{
+  display:flex;
+  flex-direction:column;
+  color:white;
+
+  
+}
+.current-loop{
+  max-width:100%;
+  margin:2px;
+  color:black;
+  margin-left:6%;
+  font-weight:normal;
+  margin-bottom:1%;
+  border: 2px solid black;
+  padding:10px;
+  border-radius:10px;
+  margin-left:1px;
+}
+
+input{
+  color:black;
+  font-size:50%;
+}
+
+p{
+  display:inline;
+  font-weight:thin;
+}
+.pmsg, ptime{
+  color:red;
+  font-weight:thin;
+  font-style:italic;
+}
