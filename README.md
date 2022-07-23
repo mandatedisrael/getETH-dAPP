@@ -4,10 +4,10 @@ A Fully deployed Decentralized App built with Solidity and JAVASCRIPT with full 
 Check out the link [here!](https://geteth.darekingx.repl.co/)
 
 Features
-> Wallet Connection with Metamask
-> Query blockchain for list of beneficiaries of the free ether
-> A timer to prevent spammers
-> Basically, it gifts free testnet ETH  to the connected wallet!
+> Wallet Connection with Metamask <br/>
+> Query blockchain for list of beneficiaries of the free ether <br/>
+> A timer to prevent spammers <br/>
+> Basically, it gifts free testnet ETH  to the connected wallet! <br/>
 
 
 Requirements
