@@ -3,6 +3,9 @@
 A Fully deployed Decentralized App built with Solidity and JAVASCRIPT with full integration to the frontend using HTML, CSS and React! :v:
 Check out the link [here!](https://geteth.darekingx.repl.co/)
 
+## Homepage
+![Homepage](1.png)
+
 Features
 > * - Wallet Connection with Metamask <br/>
 > * - Query blockchain for list of beneficiaries of the free ether <br/>
